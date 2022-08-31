@@ -1,0 +1,11 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  total_price: 9.99
+  status: MyString
+  shipping_address: MyText
+
+two:
+  total_price: 9.99
+  status: MyString
+  shipping_address: MyText
