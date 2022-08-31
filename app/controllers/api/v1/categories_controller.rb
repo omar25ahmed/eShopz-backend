@@ -35,9 +35,7 @@ class Api::V1::CategoriesController < ApplicationController
 
   private
 
-    def category_params
-      params.require(:category).permit(:name)
-    end
+  def category_params
+    params.require(:category).permit(:name)
+  end
 end
-
-
