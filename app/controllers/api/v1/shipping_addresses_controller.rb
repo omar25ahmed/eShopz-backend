@@ -38,6 +38,7 @@ class Api::V1::ShippingAddressesController < ApplicationController
   private
 
   def shipping_address_params
-    params.require(:shipping_address).permit(:address, :city, :state, :postal_code, :user_id, :phone, :country, :additional_notes)
+    params.require(:shipping_address).permit(:address, :city, :state, :postal_code, :user_id, :phone, :country,
+                                             :additional_notes)
   end
 end
