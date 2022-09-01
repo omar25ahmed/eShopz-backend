@@ -1,6 +1,4 @@
 class Api::V1::ProductsController < ApplicationController
-  before_action :authenticate_user!
-
   def index
     @products = Product.all.includes([:categories])
     render json: @products, include: [:categories]
@@ -38,6 +36,6 @@ class Api::V1::ProductsController < ApplicationController
   private
 
   def product_params
-    params.require(:product).permit(:name, :description, :price, :image)
+    params.require(:product).permit(:name, :description, :price, :stock, :name_es, :description_es)
   end
 end
