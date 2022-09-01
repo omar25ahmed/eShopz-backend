@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_08_31_223857) do
+ActiveRecord::Schema[7.0].define(version: 2022_09_01_214325) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -66,6 +66,20 @@ ActiveRecord::Schema[7.0].define(version: 2022_08_31_223857) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "shipping_addresses", force: :cascade do |t|
+    t.string "country"
+    t.string "state"
+    t.string "city"
+    t.string "postal_code"
+    t.text "address"
+    t.integer "phone"
+    t.text "additional_notes"
+    t.bigint "user_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_shipping_addresses_on_user_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -93,4 +107,5 @@ ActiveRecord::Schema[7.0].define(version: 2022_08_31_223857) do
   add_foreign_key "order_details", "orders"
   add_foreign_key "order_details", "products"
   add_foreign_key "product_carts", "products"
+  add_foreign_key "shipping_addresses", "users"
 end
