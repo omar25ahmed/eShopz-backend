@@ -20,4 +20,5 @@ Rails.application.routes.draw do
       resources :shipping_addresses, only: [:index, :show, :create, :update, :destroy]
     end
   end
+  default_url_options :host => "localhost:3001"
 end
