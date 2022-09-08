@@ -1,6 +1,6 @@
 class User < ApplicationRecord
   include Devise::JWT::RevocationStrategies::JTIMatcher
-  include Rails.application.routes.url_helpers
+  # include Rails.application.routes.url_helpers
   has_many :shipping_addresses, dependent: :destroy
   has_many :orders, dependent: :destroy
   has_many :product_carts, dependent: :destroy
@@ -13,9 +13,8 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable,
          :jwt_authenticatable, jwt_revocation_strategy: self
 
-  # def image_url
-  #   Rails.application.routes.url_helpers.rails_blob_path(image, only_url: true) if image.attached?
-  # end
+  validates :first_name, :last_name, presence: true
+  validates :first_name, :last_name, length: { maximum: 50, minimum: 2 }
 
   def image_url
     image.url if image.attached?
