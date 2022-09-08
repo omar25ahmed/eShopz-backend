@@ -13,6 +13,9 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable,
          :jwt_authenticatable, jwt_revocation_strategy: self
 
+  validates :first_name, :last_name, presence: true
+  validates :first_name, :last_name, length: { maximum: 50, minimum: 2 }
+
   def image_url
     image.url if image.attached?
   end
