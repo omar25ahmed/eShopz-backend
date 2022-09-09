@@ -8,7 +8,7 @@ class Api::V1::ProductCartsController < ApplicationController
 
   def show
     @product_cart = ProductCart.find(params[:id])
-    render json: @product_cart, include: [:user, :product]
+    render json: @product_cart, include: %i[user product]
   end
 
   def create
