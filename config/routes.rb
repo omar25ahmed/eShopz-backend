@@ -18,7 +18,8 @@ Rails.application.routes.draw do
       resources :products, only: [:index, :show, :create, :update, :destroy]
       resources :categories, only: [:index, :show, :create, :update, :destroy]
       resources :shipping_addresses, only: [:index, :show, :create, :update, :destroy]
+      resources :product_carts, only: [:index, :show, :create, :update, :destroy]
     end
   end
-  default_url_options :host => "localhost:3001"
+  # default_url_options :host => "localhost:3001"
 end
