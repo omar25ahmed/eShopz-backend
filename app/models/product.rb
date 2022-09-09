@@ -12,5 +12,5 @@ class Product < ApplicationRecord
   validates :price, numericality: { greater_than: 0 }
   validates :stock, numericality: { greater_than_or_equal_to: 0 }
   validates :brand, length: { maximum: 200, minimum: 2 }
-  validates :images, attached: true, content_type: ['image/png', 'image/jpg', 'image/jpeg']
+  # validates :images, attached: true, content_type: ['image/png', 'image/jpg', 'image/jpeg']
 end
