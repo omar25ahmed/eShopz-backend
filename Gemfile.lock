@@ -90,6 +90,7 @@ GEM
     bullet (7.0.3)
       activesupport (>= 3.0.0)
       uniform_notifier (~> 1.11)
+    cancancan (3.3.0)
     choice (0.2.0)
     concurrent-ruby (1.1.10)
     countries (5.1.2)
@@ -258,6 +259,7 @@ DEPENDENCIES
   aws-sdk-s3
   bootsnap
   bullet
+  cancancan
   countries (~> 5.1)
   debug
   devise
