@@ -19,6 +19,7 @@ Rails.application.routes.draw do
       resources :categories, only: [:index, :show, :create, :update, :destroy]
       resources :shipping_addresses, only: [:index, :show, :create, :update, :destroy]
       resources :product_carts, only: [:index, :show, :create, :update, :destroy]
+      resources :webhook, only: [:create]
       post '/checkout/create', to: 'checkout#create'
     end
   end
