@@ -21,5 +21,7 @@ Rails.application.routes.draw do
       resources :product_carts, only: [:index, :show, :create, :update, :destroy]
     end
   end
+  get 'resetpassword', to: 'users#resetpassword', as: 'resetpassword'
+
   # default_url_options :host => "localhost:3001"
 end
