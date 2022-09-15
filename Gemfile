@@ -63,3 +63,4 @@ group :development do
 end
 
 gem 'countries', '~> 5.1'
+gem 'stripe'

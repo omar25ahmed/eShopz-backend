@@ -230,6 +230,7 @@ GEM
       rexml
     ruby-progressbar (1.11.0)
     sixarm_ruby_unaccent (1.2.0)
+    stripe (7.1.0)
     strscan (3.0.4)
     thor (1.2.1)
     timeout (0.3.0)
@@ -271,6 +272,7 @@ DEPENDENCIES
   rails (~> 7.0.3, >= 7.0.3.1)
   rails-erd
   rubocop (>= 1.0, < 2.0)
+  stripe
   tzinfo-data
 
 RUBY VERSION
