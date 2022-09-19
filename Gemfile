@@ -64,3 +64,5 @@ end
 
 gem 'countries', '~> 5.1'
 gem 'stripe'
+
+gem "byebug", "~> 11.1", :groups => [:development, :test]

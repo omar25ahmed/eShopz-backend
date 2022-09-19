@@ -4,37 +4,7 @@ class Api::V1::CheckoutController < ApplicationController
     @session = Stripe::Checkout::Session.create({
                                                   customer: current_user.stripe_customer_id,
                                                   payment_method_types: ['card'],
-                                                  line_items: [{
-                                                    price_data: {
-                                                      currency: 'usd',
-                                                      product_data: {
-                                                        name: params[:product_name],
-                                                        images: [params[:product_image]]
-                                                      },
-                                                      unit_amount: params[:product_price].to_i * 100
-                                                    },
-                                                    quantity: params[:product_quantity]
-                                                  }, {
-                                                    price_data: {
-                                                      currency: 'usd',
-                                                      product_data: {
-                                                        name: params[:product_name],
-                                                        images: [params[:product_image]]
-                                                      },
-                                                      unit_amount: params[:product_price].to_i * 100
-                                                    },
-                                                    quantity: params[:product_quantity]
-                                                  }, {
-                                                    price_data: {
-                                                      currency: 'usd',
-                                                      product_data: {
-                                                        name: params[:product_name],
-                                                        images: [params[:product_image]]
-                                                      },
-                                                      unit_amount: params[:product_price].to_i * 100
-                                                    },
-                                                    quantity: params[:product_quantity]
-                                                  }],
+                                                  line_items: [params[:cart].map {|product| {price: product[:price_id], quantity: product[:quantity]}}],
                                                   mode: 'payment',
                                                   success_url: 'https://example.com/success',
                                                   cancel_url: 'https://example.com/cancel'
