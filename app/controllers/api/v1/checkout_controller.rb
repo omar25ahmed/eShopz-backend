@@ -2,8 +2,29 @@ class Api::V1::CheckoutController < ApplicationController
   skip_load_and_authorize_resource
   def create
     @session = Stripe::Checkout::Session.create({
+                                                  customer: current_user.stripe_customer_id,
                                                   payment_method_types: ['card'],
                                                   line_items: [{
+                                                    price_data: {
+                                                      currency: 'usd',
+                                                      product_data: {
+                                                        name: params[:product_name],
+                                                        images: [params[:product_image]]
+                                                      },
+                                                      unit_amount: params[:product_price].to_i * 100
+                                                    },
+                                                    quantity: params[:product_quantity]
+                                                  }, {
+                                                    price_data: {
+                                                      currency: 'usd',
+                                                      product_data: {
+                                                        name: params[:product_name],
+                                                        images: [params[:product_image]]
+                                                      },
+                                                      unit_amount: params[:product_price].to_i * 100
+                                                    },
+                                                    quantity: params[:product_quantity]
+                                                  }, {
                                                     price_data: {
                                                       currency: 'usd',
                                                       product_data: {
