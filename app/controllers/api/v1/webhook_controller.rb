@@ -14,16 +14,17 @@ class Api::V1::WebhookController < ApplicationController
       return
     rescue Stripe::SignatureVerificationError => e
       # Invalid signature
-      puts "Signature error"
+      puts 'Signature error'
       p e
       return
     end
 
     # Handle the event
     case event.type
-    when 'checkout.session.completed'
+    when 'payment_intent.succeeded'
       session = event.data.object
-      Product.create!(name: 'sessionlineitemsdataname', price: 1000, name_es: 'too long nameee', description: 'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa', description_es: 'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa', stock: 1, brand: 'ihone')
+      Product.create!(name: 'sessionlineitemsdataname', price: 1000, name_es: 'too long nameee',
+                      description: 'aaaaaaaaaaaa', description_es: 'aaaaaaaaaa', stock: 1, brand: 'iphone')
     end
 
     render json: { message: 'success' }

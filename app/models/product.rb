@@ -16,7 +16,8 @@ class Product < ApplicationRecord
   # validates :images, attached: true, content_type: ['image/png', 'image/jpg', 'image/jpeg']
 
   def create_stripe_product
-    product = Stripe::Product.create(name:, description:, default_price_data: { currency: 'usd', unit_amount_decimal: (price * 100).to_i })
+    product = Stripe::Product.create(name:, description:,
+                                     default_price_data: { currency: 'usd', unit_amount_decimal: (price * 100).to_i })
     update(stripe_product_id: product.id, stripe_price_id: product.default_price)
   end
 end
