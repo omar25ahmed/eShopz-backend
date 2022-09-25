@@ -31,6 +31,8 @@ gem 'bullet', group: 'development'
 
 gem 'rack-cors'
 
+gem 'rails_admin', '~> 3.0'
+
 gem 'devise'
 gem 'devise-jwt'
 gem 'fast_jsonapi'
@@ -66,3 +68,4 @@ gem 'countries', '~> 5.1'
 gem 'stripe'
 
 gem 'byebug', '~> 11.1', groups: %i[development test]
+gem 'sassc-rails'

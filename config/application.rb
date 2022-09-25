@@ -26,5 +26,10 @@ module EShopzBackend
     # config.session_store :cookie_store, key: '_interslice_session'
     # config.middleware.use ActionDispatch::Cookies
     # config.middleware.use config.session_store, config.session_options
+
+    config.middleware.use ActionDispatch::Cookies
+    config.middleware.use ActionDispatch::Flash
+    config.middleware.use Rack::MethodOverride
+    config.middleware.use ActionDispatch::Session::CookieStore, {:key=>"_e_shopz_backend_session"}
   end
 end
